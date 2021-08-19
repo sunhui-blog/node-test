@@ -1,15 +1,4 @@
-Promise --最终会变为可用值的代理
-
-
-处理中状态 -》 被解决状态或被拒绝状态
-
-Battery API
-Fetch API
-Service Worker
-
-
-// 创建 promise
-let done = true
+let done = false
 
 const isItDoneYet = new Promise((resolve, reject) => {
   if (done) {
@@ -21,8 +10,8 @@ const isItDoneYet = new Promise((resolve, reject) => {
   }
 })
 
-
-
-
-
-
+isItDoneYet.then((data) => {
+  console.log(data, "===resolve===") // 这是创建的东西
+}, (data) => {
+  console.log(data, "===reject===") // 仍然在处理其他事情
+})
