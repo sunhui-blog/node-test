@@ -62,3 +62,15 @@ readableStream.pipe(writableStream)
 
 readableStream.push('hi!')
 readableStream.push('ho!')
+
+// 如何发送数据到可写流
+// 使用流的 write() 方法：
+writableStream.write('hey!\n')
+
+// 也可以使用 readable 事件直接地消费可读流：
+readableStream.on('readable', () => {
+  console.log(readableStream.read())
+})
+
+// 使用信号通知已结束写入的可写流
+writableStream.end() // 有什么注意地方？？？
